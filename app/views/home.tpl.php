@@ -2,7 +2,7 @@
 
         <?php foreach ($viewVars['pokemons'] as $pokemon) : ?>
 
-            <div class="one-pokemon">
+            <div class="all-pokemons__one">
                 <a href="<?= $router->generate('details', ['details_id' => $pokemon->getId()]) ?>">
                     <img src="<?= $baseUri ?>/assets/img/<?= $pokemon->getNumero() ?>.png" alt="<?= $pokemon->getNom() ?>">
                 </a>
@@ -12,3 +12,4 @@
         <?php endforeach; ?>
 
         </main>
+        

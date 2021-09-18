@@ -80,7 +80,7 @@ li a {
     flex-wrap: wrap;
 }
 
-.one-pokemon {
+.all-pokemons__one {
     background-color: #982c2c;
     padding: 15px;
     border-radius: 20px;
@@ -89,15 +89,20 @@ li a {
     text-align: center;
 }
 
-.one-pokemon p {
+.all-pokemons__one p {
     color: #e3c8d3;
     font-size: 1.4em;
     margin: 10px; 
 }
 
-.one-pokemon img:hover {
+.all-pokemons__one img:hover {
     transition-duration: 0.5s;
     transform: scale(1.05);
+}
+
+.name-type {
+    text-align: center;
+    margin-bottom: 0.4em;
 }
 
 /********************************************

@@ -67,10 +67,14 @@ class CreateController extends CoreController {
         // Récupération de tous les pokémon dont l'id du type est passé dans l'url
         $emptyPokemon = new Pokemon();
         $allPokemons = $emptyPokemon->findAllByType($urlParams['type_id']);
+        
+        // Récupération des propriétés du type dont l'id est passé dans l'url
+        $pokemonType = Type::findById($urlParams['type_id']);
 
-        // dd($allPokemons)
-
-        $this->show('type_list', ['allPokemons' => $allPokemons]);
+        $this->show('type_list', [
+            'allPokemons' => $allPokemons,
+            'pokemonType' => $pokemonType
+        ]);
 
     }
 

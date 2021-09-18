@@ -27,7 +27,7 @@ class Type extends CoreModel
     }
     
     // Méthode qui récupère toutes les infos d'un type en fonction de son id
-    public function  findById($id) {
+    public static function findById($id) {
 
         $sql = "SELECT * FROM `type` WHERE id = {$id};";
 
