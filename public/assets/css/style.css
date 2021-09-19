@@ -241,10 +241,13 @@ td {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 1500px) {
+
+    /****************** GENERAL ******************/
     .container {
         width: 1000px;
     }
 
+    /****************** HOME and TYPE_LIST *****************/
     .all-pokemons {
         width: 1000px;
     }
@@ -253,6 +256,7 @@ td {
         width: 50%;
     }
 
+    /****************** DETAILS ******************/
     .container-infos {
         width: 50%;
         margin-left: 25px;
@@ -265,10 +269,13 @@ td {
 }
 
 @media screen and (max-width: 1100px) {
+
+    /****************** GENERAL ******************/
     .container {
         width: 700px;
     }
 
+    /****************** HOME and TYPE_LIST *****************/
     .all-pokemons {
         width: 700px;
     }
@@ -346,10 +353,13 @@ td {
 }
 
 @media screen and (max-width: 700px) {
+
+    /****************** GENERAL ******************/
     .container {
         width: 400px;
     }
 
+    /****************** HOME and TYPE_LIST *****************/
     .all-pokemons {
         width: 400px;
     }
@@ -417,10 +427,13 @@ td {
 }
 
 @media screen and (max-width: 400px) {
+
+    /****************** GENERAL ******************/
     .container {
         width: 300px;
     }
 
+    /****************** HOME and TYPE_LIST *****************/
     .all-pokemons {
         width: 300px;
     }
