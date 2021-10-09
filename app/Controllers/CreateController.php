@@ -23,7 +23,7 @@ class CreateController extends CoreController {
         // Si le personnage n'existe pas, on redirige l'utilisateur vers la 404
         if ($pokemon === false) {
 
-            return $this->show('404');
+            return $this->show('error/404');
         }
 
         // Je récupère tous les pokemon_type dont le pokemon_numero est identique au numero du pokemon dont l'id est 

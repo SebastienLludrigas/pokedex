@@ -4,8 +4,9 @@ namespace Pokedex\Utils;
 
 use PDO;
 
-// Retenir son utilisation  => \Database::getPDO()
-// Design Pattern : Singleton
+// Design Pattern Singleton : Permet de ne créer qu'une seule connexion qui sera utilisée pour tous les 
+// appels à getPDO() => on évite de multiples appels qui peuvent dépasser la limite de connexion de notre
+// SGBD
 class Database {
     /** @var PDO */
     private $dbh;
@@ -32,12 +33,15 @@ class Database {
             exit;
         }
     }
-    // the unique method you need to use
+    // À chaque appel de getPDO() dans un de nos Models 
     public static function getPDO() {
-        // If no instance => create one
+        // On vérifie si la propriété $_instance est vide, c-à-d si il n'existe pas déjà une connexion
         if (empty(self::$_instance)) {
+            // Si c'est le cas ($_instance est vide) on créer une instance de Database que l'on va stocker 
+            // dans $_instance
             self::$_instance = new Database();
         }
+        // Dans tous les cas on renvoi maintenant la propriété $dbh qui contient la connexion à notre BDD
         return self::$_instance->dbh;
     }
 }

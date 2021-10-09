@@ -16,7 +16,6 @@ class CoreController  {
     private function getTransversalVars() {
         // Je retourne un tableau associatif des données utile sur toutes les pages
         return [
-            // 'baseURL' => $_SERVER['BASE_URI'],
             'router' => $this->router,
             'baseUri' => $_SERVER['BASE_URI']
         ];
@@ -27,19 +26,15 @@ class CoreController  {
         // J'appelle la méthode s'occupant des données à utiliser sur toutes les pages
         $transversalVars = $this->getTransversalVars();
 
-        // dd($transversalVars);
+        // On veut désormais accéder aux données de $transversalVars, mais sans accéder au tableau
+        // La fonction extract permet de créer une variable pour chaque élément du tableau passé en argument
+        extract($transversalVars);
 
-        // Pour chaque donnée, je l'ajoute à $viewVars
-        foreach ($transversalVars as $viewVarName=>$viewVarValue) {
-            $viewVars[$viewVarName] = $viewVarValue;
-        }
-
-        $router = $viewVars['router']; 
-        $baseUri = $viewVars['baseUri']; 
+        // dd($router, $baseUri);
         
         // J'appelle mes templates !
-        include __DIR__.'/../views/header.tpl.php';
+        include __DIR__.'/../views/layout/header.tpl.php';
         include __DIR__.'/../views/'.$viewName.'.tpl.php';
-        include __DIR__.'/../views/footer.tpl.php';
+        include __DIR__.'/../views/layout/footer.tpl.php';
     }
 }

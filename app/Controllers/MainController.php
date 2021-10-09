@@ -12,7 +12,7 @@ class MainController extends CoreController {
         $emptyPokemon = new Pokemon();
         $pokemons = $emptyPokemon->findAll();
 
-        // dd($pokemons);
+        // dd($pokemons, 'test');
         
 
         $this->show('home', ['pokemons' => $pokemons]);
@@ -21,7 +21,8 @@ class MainController extends CoreController {
 
     public function page404() {
 
-        $this->show('404');
+        // dd('Test');
+        $this->show('error/404');
 
     }
 }
