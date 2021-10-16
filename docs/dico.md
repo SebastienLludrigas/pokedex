@@ -4,7 +4,7 @@
 
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
-|pokemon_id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Pokemon|
+|pokemon_id|INT|PRIMARY KEY, NOT NULL, UNSIGNED|L'identifiant du Pokemon|
 |nom|VARCHAR(50)|NOT NULL|Le nom du Pokemon|
 |pv|INT|NOT NULL|Les points de vie du Pokemon|
 |attaque|INT|NOT NULL|Le niveau d'attaque|

@@ -86,5 +86,4 @@ class CreateController extends CoreController {
         ]);
 
     }
-
 }
