@@ -5,8 +5,9 @@ namespace Pokedex\Models;
 use Pokedex\Utils\Database;
 use PDO;
 
-class Pokemon extends CoreModel {
+class Pokemon {
 
+    protected $pokemon_id;
     protected $nom;
     protected $pv;
     protected $attaque;
@@ -22,10 +23,10 @@ class Pokemon extends CoreModel {
         $sql = "SELECT p.*
                 FROM pokemon p
                 INNER JOIN pokemon_type pt
-                ON p.numero = pt.pokemon_numero
+                ON p.pokemon_id = pt.pokemon_id
                 INNER JOIN `type` t
-                ON pt.type_id = t.id
-                WHERE t.id = {$type_id};";
+                ON pt.type_id = t.type_id
+                WHERE t.type_id = {$type_id};";
 
         // Database::getPDO() me retourne l'instance PDO contenant la connexion à la BDD
         $pdo = $pdo = Database::getPDO();
@@ -59,10 +60,10 @@ class Pokemon extends CoreModel {
         $sql = "SELECT p.*, t.name
                 FROM pokemon p
                 INNER JOIN pokemon_type pt
-                ON p.numero = pt.pokemon_numero
+                ON p.pokemon_id = pt.pokemon_id
                 INNER JOIN `type` t
-                ON pt.type_id = t.id
-                WHERE p.id = {$pokemon_id};";
+                ON pt.type_id = t.type_id
+                WHERE p.pokemon_id = {$pokemon_id};";
 
         // Database::getPDO() me retourne l'instance PDO contenant la connexion à la BDD
         $pdo = $pdo = Database::getPDO();
@@ -80,7 +81,7 @@ class Pokemon extends CoreModel {
 
         $sql = "SELECT p.*
                 FROM pokemon p
-                WHERE p.id = {$pokemon_id};";
+                WHERE p.pokemon_id = {$pokemon_id};";
 
         // Database::getPDO() me retourne l'instance PDO contenant la connexion à la BDD
         $pdo = $pdo = Database::getPDO();
@@ -93,6 +94,13 @@ class Pokemon extends CoreModel {
 
     }
 
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->pokemon_id;
+    }
 
     /**
      * Get the value of nom

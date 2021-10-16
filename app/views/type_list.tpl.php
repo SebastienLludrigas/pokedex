@@ -5,7 +5,7 @@
         <?php foreach ($viewVars['allPokemons'] as $pokemon) : ?>
 
             <div class="all-pokemons__one">
-                <a href="<?= $router->generate('details', ['details_id' => $pokemon['id']]) ?>">
+                <a href="<?= $router->generate('details', ['details_id' => $pokemon['pokemon_id']]) ?>">
                     <img src="<?= $baseUri ?>/assets/img/<?= $pokemon['numero'] ?>.png" alt="<?= $pokemon['nom'] ?>">
                 </a>
                 <p>#<?= $pokemon['numero'] . ' ' . $pokemon['nom'] ?></p>

@@ -6,9 +6,9 @@ use Pokedex\Models\CoreModel;
 use Pokedex\Utils\Database;
 use PDO;
 
-class PokemonType extends CoreModel {
+class PokemonType {
 
-    protected $pokemon_numero;
+    protected $pokemon_id;
     protected $type_id;
 
     /**
@@ -35,12 +35,12 @@ class PokemonType extends CoreModel {
     /**
      * Méthode qui récupère les pokemon_type en fonction du numero du pokemon dont l'id est passé dans l'url
      */ 
-    public function findByPokemonNumero($pokemon_numero)
+    public function findByPokemonNumero($pokemon_id)
     {
 
         $sql = "SELECT *
                 FROM `pokemon_type`
-                WHERE `pokemon_numero` = {$pokemon_numero}";
+                WHERE `pokemon_id` = {$pokemon_id}";
 
         // Connexion à la BDD
         $pdo = Database::getPDO();

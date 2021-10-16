@@ -5,10 +5,11 @@ namespace Pokedex\Models;
 use Pokedex\Utils\Database;
 use PDO;
 
-class Type extends CoreModel
+class Type
 {
-    protected $name;
-    protected $color;
+    protected $type_id;
+    protected $nom;
+    protected $couleur;
 
     // Méthode qui récupère toutes les infos de tous les types 
     public function  findAll() {
@@ -29,7 +30,7 @@ class Type extends CoreModel
     // Méthode qui récupère toutes les infos d'un type en fonction de son id
     public static function findById($id) {
 
-        $sql = "SELECT * FROM `type` WHERE id = {$id};";
+        $sql = "SELECT * FROM `type` WHERE type_id = {$id};";
 
         // Database::getPDO() me retourne l'instance PDO contenant la connexion à la BDD
         $pdo = $pdo = Database::getPDO();
@@ -43,11 +44,19 @@ class Type extends CoreModel
     }
 
     /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->type_id;
+    }
+
+    /**
      * Get the value of name
      */ 
     public function getName()
     {
-        return $this->name;
+        return $this->nom;
     }
 
     /**
@@ -55,7 +64,7 @@ class Type extends CoreModel
      */ 
     public function getColor()
     {
-        return $this->color;
+        return $this->couleur;
     }
 
 }

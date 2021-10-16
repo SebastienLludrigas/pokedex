@@ -20,16 +20,20 @@ class CreateController extends CoreController {
         $emptyPokemon = new Pokemon();
         $pokemon = $emptyPokemon->findByTypeBis($urlParams['details_id']);
 
+        // dd($pokemon);
+
         // Si le personnage n'existe pas, on redirige l'utilisateur vers la 404
         if ($pokemon === false) {
 
             return $this->show('error/404');
         }
 
-        // Je récupère tous les pokemon_type dont le pokemon_numero est identique au numero du pokemon dont l'id est 
-        // passé dans l'url
+        // Je récupère toutes les lignes de la table pokemon_type dont le pokemon_id est identique au 
+        // pokemon_id passé dans l'url
         $emptyPokemonType = new PokemonType();
         $allPokemonTypes = $emptyPokemonType->findByPokemonNumero($pokemon->getNumero());
+
+        // dd($allPokemonTypes);
 
         //Je boucle sur $allPokemonTypes pour récupérer uniquement ses type_id que je stocke dans un tableau
         $type_id = [];
@@ -37,13 +41,18 @@ class CreateController extends CoreController {
             $type_id[] = $pokemonType->getTypeId(); 
         }
 
-        // Je récupère tous les types
+        // dd($type_id);
+
+        // Je créer une nouvelle instance de Type
         $emptyType = new Type();
 
-        // Je boucle sur $type_id pour récupérer les infos du type dont l'id correspond au type du pokemon dont l'id est passée dans l'url
+        // Je boucle sur $type_id pour récupérer les infos du type dont l'id correspond à l'id du pokemon 
+        // passée dans l'url
         foreach ($type_id as $id) {
             $allTypes[] = $emptyType->findById($id);
         }
+
+        // dd($allTypes);
         
         $this->show('details', [
                     'pokemon'  => $pokemon,
